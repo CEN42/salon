@@ -36,6 +36,7 @@ namespace Manager.Account
         protected void Page_Load()
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var name = manager.FindById(User.Identity.GetUserId()).FirstName + manager.FindById(User.Identity.GetUserId()).LastName;
             
             HasPhoneNumber = String.IsNullOrEmpty(manager.GetPhoneNumber(User.Identity.GetUserId()));
 
