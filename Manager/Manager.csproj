@@ -38,6 +38,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="JsonServices">
+      <HintPath>..\..\..\..\..\Downloads\JsonServices (0.3.4)\JsonServices.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonServices.Web">
+      <HintPath>..\..\..\..\..\Downloads\JsonServices (0.3.4)\JsonServices.Web.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -171,6 +177,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="Handler1.ashx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Pictures\backgroud.jpg" />
     <Content Include="Pictures\backgroud2.jpg" />
@@ -356,11 +363,30 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EZSnipsAccess.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Handler1.ashx.cs">
+      <DependentUpon>Handler1.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServiceAPI.cs" />
+    <Compile Include="Migrations\201502040534145_InitialCreate.cs" />
+    <Compile Include="Migrations\201502040534145_InitialCreate.Designer.cs">
+      <DependentUpon>201502040534145_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502040545599_FirstName.cs" />
+    <Compile Include="Migrations\201502040545599_FirstName.Designer.cs">
+      <DependentUpon>201502040545599_FirstName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502040547157_LastName.cs" />
+    <Compile Include="Migrations\201502040547157_LastName.Designer.cs">
+      <DependentUpon>201502040547157_LastName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceAPI.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -386,6 +412,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201502040534145_InitialCreate.resx">
+      <DependentUpon>201502040534145_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502040545599_FirstName.resx">
+      <DependentUpon>201502040545599_FirstName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502040547157_LastName.resx">
+      <DependentUpon>201502040547157_LastName.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -11,7 +11,7 @@
             <asp:ListItem>MasterCuts</asp:ListItem>
             <asp:ListItem>SuperCuts</asp:ListItem>
         </asp:DropDownList>
-        <a class="btn btn-primary btn-lg">Go &raquo;</a>
+        <asp:Button CssClass="btn btn-primary btn-lg" runat="server" Text="Go &raquo;" OnClick="LoginGo_Click" />
     </div>
 
 
