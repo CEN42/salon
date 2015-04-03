@@ -3,7 +3,7 @@ namespace Manager.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class FirstName : DbMigration
+    public partial class FirstLastName : DbMigration
     {
         public override void Up()
         {

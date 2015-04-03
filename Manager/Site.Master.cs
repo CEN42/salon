@@ -8,6 +8,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Manager.Models;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security;
+using Owin;
 
 namespace Manager
 {
@@ -70,8 +74,16 @@ namespace Manager
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            //var user = 
+            if (Request.IsAuthenticated)
+            {
+                var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+                var user = manager.FindById(Context.User.Identity.GetUserId());
+                if (user != null)
+                {
+                    var userName = char.ToUpper(user.StylistUsers.FirstName[0]) + user.StylistUsers.FirstName.Substring(1) + " " + char.ToUpper(user.StylistUsers.LastName[0]) + user.StylistUsers.LastName.Substring(1);
+                    Label test = (Label)LoginViewEZ.FindControl("Label1"); test.Text = userName;
+                }
+            }
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

@@ -26,6 +26,14 @@
                     CssClass="text-danger" ErrorMessage="The last name field is required." />
             </div>
         </div>
+        <div class ="form-group">
+            <asp:Label runat ="server" AssociatedControlID="phoneText" CssClass="col-md-2 control-label">Phone Number</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="phoneText" CssClass="form-control" TextMode="SingleLine" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="phoneText"
+                    CssClass="text-danger" ErrorMessage="A contact phone number is required." />
+            </div>
+        </div>
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
             <div class="col-md-10">

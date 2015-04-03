@@ -40,6 +40,15 @@ namespace Manager.Account {
         protected global::System.Web.UI.WebControls.TextBox lName;
         
         /// <summary>
+        /// phoneText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox phoneText;
+        
+        /// <summary>
         /// Email control.
         /// </summary>
         /// <remarks>
