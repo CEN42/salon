@@ -5,6 +5,7 @@ body {
     background:url(/Pictures/backgroud.jpg);
     /*background-repeat:repeat;*/
     box-shadow:-10px 0px 8px rgba(89,87,90,.8);
+    text-align: left;
 }
 
 /* Wrapping element */
