@@ -49,12 +49,22 @@
                     
                 </div>
                 <div class="navbar-collapse collapse">
+                    <div runat ="server" id ="authenMenu" visible =" false">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/Default.aspx">Home</a></li>
-                        <li><a runat="server" href="Services.aspx">Services</a></li>     
+                        <li><a runat="server" href="~/Calendar.aspx">Home</a></li>
+                        <li><a runat="server" href="~/Services.aspx">Services</a></li>
+                        <li><a runat="server" href="~/Employees.aspx">Employees</a></li>
+                        <li><a runat="server" href="~/Clients.aspx">Clients</a></li>     
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
-                    </ul>
+                    </ul></div>
+                    <div runat="server" id="notAuthenMenu" visible ="false">
+                         <ul class="nav navbar-nav">
+                             <li><a runat="server" href="~/Default.aspx">Home</a></li>
+                             <li><a runat="server" href="~/About">About</a></li>
+                             <li><a runat="server" href="~/Contact">Contact</a></li
+                         </ul>
+                    </div>
                     <asp:LoginView ID="LoginViewEZ" runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
@@ -74,7 +84,7 @@
             </div>
         </div>
         <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" >
             </asp:ContentPlaceHolder>
             <hr />
             <footer>

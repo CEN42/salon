@@ -115,7 +115,7 @@ namespace Manager
             }
             else
             {
-                response.Redirect("~/");
+                response.Redirect("~/Calendar.aspx");
             }
         }
     }

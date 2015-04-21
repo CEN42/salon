@@ -16,6 +16,7 @@ namespace Manager
        public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+         
         }
 
         void Application_Start(object sender, EventArgs e)

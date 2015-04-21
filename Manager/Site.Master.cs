@@ -76,6 +76,7 @@ namespace Manager
         {
             if (Request.IsAuthenticated)
             {
+                authenMenu.Visible = true;
                 var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
                 var user = manager.FindById(Context.User.Identity.GetUserId());
                 if (user != null)
@@ -84,6 +85,8 @@ namespace Manager
                     Label test = (Label)LoginViewEZ.FindControl("Label1"); test.Text = userName;
                 }
             }
+            else
+                notAuthenMenu.Visible = true;
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
