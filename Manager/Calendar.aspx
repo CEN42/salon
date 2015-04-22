@@ -61,14 +61,12 @@
 
                 // event creating
                 dp.onTimeRangeSelected = function (args) {
-                    popcontact('newReservation.aspx?start= ' + args.start + '&end=' + args.end);
+                    popcontact('newReservation.aspx?start= ' + args.start + '&end=' + args.end );
                     dp.clearSelection();
                 };
 
                 function createRes(rStart, rEnd, name) {
-                    alert("name: " + name)
                     var nm = name.split("$");
-                    alert("nm[1]: " + nm[1])
                     var e = new DayPilot.Event({
                         start: rStart,
                         end: rEnd,
@@ -91,9 +89,7 @@
                 };
 
                 dp.onEventClick = function (args) {
-                    if (confirm('Do you wish to delete reservation?')) {
-
-                    }
+                    alert("Reservation Details: " )
 
                 };
 

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EZ Snips" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=ENVY;Initial Catalog=&quot;EZ Snips&quot;;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="EZ_SnipsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Services" Member="Services">
+    <Type Name="Service">
+      <Column Name="serviceid" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="servicetitle" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="servicedesc" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="amount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="Service_Reservation" Member="Reservations" ThisKey="serviceid" OtherKey="serviceid" Type="Reservation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tempCustomers" Member="tempCustomers">
+    <Type Name="tempCustomer">
+      <Column Name="firstname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="lastname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="phonenumber" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="tempid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="tempCustomer_Reservation" Member="Reservations" ThisKey="tempid" OtherKey="tempid" Type="Reservation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StylistProfileInfoes" Member="StylistProfileInfoes">
+    <Type Name="StylistProfileInfoe">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="StylistProfileInfoe_Reservation" Member="Reservations" ThisKey="Id" OtherKey="stylistid" Type="Reservation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Reservations" Member="Reservations">
+    <Type Name="Reservation">
+      <Column Name="reser_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="userid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tempid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="resStart" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="resEnd" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="serviceid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="stylistid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Service_Reservation" Member="Service" ThisKey="serviceid" OtherKey="serviceid" Type="Service" IsForeignKey="true" />
+      <Association Name="StylistProfileInfoe_Reservation" Member="StylistProfileInfoe" ThisKey="stylistid" OtherKey="Id" Type="StylistProfileInfoe" IsForeignKey="true" />
+      <Association Name="tempCustomer_Reservation" Member="tempCustomer" ThisKey="tempid" OtherKey="tempid" Type="tempCustomer" IsForeignKey="true" />
+      <Association Name="Customer_Reservation" Member="Customer" ThisKey="userid" OtherKey="userid" Type="Customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Customers" Member="Customers">
+    <Type Name="Customer">
+      <Column Name="userid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="lastname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="firstname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="rewards" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="phonenumber" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="Customer_Reservation" Member="Reservations" ThisKey="userid" OtherKey="userid" Type="Reservation" />
+    </Type>
+  </Table>
+</Database>
